@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #FF5722;
+        }
+        .details {
+            text-align: left;
+            margin-top: 20px;
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .treatment {
+            background-color: #e8f5e9;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2196F3;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-success">Prediction Result</h2>
+
+        <!-- Prediction Result -->
+        <p><strong>The predicted disease is:</strong> <span class="highlight">{{ prediction }}</span></p>
+
+        <!-- Recommended Treatment -->
+        <div class="treatment">
+            <h4 class="text-success">Recommended Treatment</h4>
+            <p>{{ treatment }}</p>
+        </div>
+
+        <!-- Heatmap -->
+        <h3 class="mt-4">Heatmap Analysis</h3>
+        <img src="{{ heatmap_url }}" alt="Heatmap" style="width:100%; border: 1px solid #ddd; border-radius: 8px;">
+        
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+</body>
+</html>
